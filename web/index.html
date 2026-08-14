@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>desiview — DESI DR1 QSO source distribution</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="overlay"></div>
+
+<div id="panel">
+  <h1>desiview</h1>
+  <p id="status">starting…</p>
+
+  <section>
+    <h2>Footprints</h2>
+    <div id="footprints"></div>
+  </section>
+
+  <section>
+    <h2>Collation</h2>
+    <label class="toggle wide">
+      <input type="checkbox" id="collate" checked>
+      <span class="name">Merge unresolvable sources</span>
+    </label>
+    <p class="note" id="collate-note">
+      Sources sharing a cell merge into one point of proportional area,
+      per footprint.
+    </p>
+    <label class="slider">
+      <span>Cell size</span>
+      <input type="range" id="cell" min="1" max="8" step="0.5" value="2">
+    </label>
+    <label class="slider">
+      <span>Merged size</span>
+      <input type="range" id="blob" min="0.3" max="2" step="0.05" value="0.8">
+    </label>
+  </section>
+
+  <section>
+    <h2>Display</h2>
+    <label class="slider">
+      <span>Point size</span>
+      <input type="range" id="point" min="0.5" max="6" step="0.5" value="1.5">
+    </label>
+    <label class="slider">
+      <span>Label size</span>
+      <input type="range" id="labelsize" min="8" max="24" step="1" value="11">
+    </label>
+    <label class="toggle wide">
+      <input type="checkbox" id="mouselook">
+      <span class="name">Mouse look</span>
+      <span class="count">E</span>
+    </label>
+    <div class="radios">
+      <label><input type="radio" name="radial" value="z" checked> radius = redshift</label>
+      <label><input type="radio" name="radial" value="chi"> radius = comoving distance</label>
+    </div>
+    <div class="buttons">
+      <button id="top-view">Top view</button>
+    </div>
+    <div class="buttons">
+      <button id="reset">Reset view</button>
+      <button id="reset-settings">Reset settings</button>
+    </div>
+  </section>
+</div>
+
+<p id="stats"></p>
+<p id="help">drag to turn the sphere · scroll to zoom · WASD to fly · space up, ctrl (or C) down · shift to sprint · E for mouse look</p>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

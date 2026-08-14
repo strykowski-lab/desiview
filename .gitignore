@@ -1,5 +1,8 @@
-web/data/
 __pycache__/
 *.pyc
 .venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
 .DS_Store
